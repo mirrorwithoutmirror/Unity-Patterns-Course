@@ -17,15 +17,15 @@ public class WorkerStatesContext : MonoBehaviour
         _state = new WorkerMovementToHomeState(this);
     }
 
+    private void Update()
+    {
+        _state.Update();
+    }
+
     public void ChangeState(IState newState)
     {
         _state.Exit();
         _state = newState;
         _state.Enter();
-    }
-
-    public void Update()
-    {
-        _state.Update();
     }
 }
